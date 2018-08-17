@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Log in</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <ion-list inset>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+      </ion-item>
+
+      <div ngxErrors="name" #nameErrors="ngxErrors">
+        <div [ngxError]="['required']" [when]="['touched', 'dirty']">It should be a valid name</div>
+      </div>
+
+    </ion-list>
+
+    <div padding-horizontal>
+      <button ion-button full type="submit">Log in</button>
+
+    </div>
+  </form>
+</ion-content>
